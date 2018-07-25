@@ -29,17 +29,17 @@ public class BooksAdapter extends ArrayAdapter<Book> {
         }
         Book book = getItem(position);
         TextView title = (TextView) listItemView.findViewById(R.id.title);
-        title.setText("Title "+book.getTitle());
+        title.setText("Title: "+book.getTitle());
         TextView authors = (TextView)listItemView.findViewById(R.id.authors);
-        authors.setText("Authors:"+book.getAuthors());
+        authors.setText("Authors: "+book.getAuthors());
         TextView description = (TextView) listItemView.findViewById(R.id.description);
         description.setText("Description:"+book.getDescription());
         TextView publisher = (TextView) listItemView.findViewById(R.id.publisher);
         publisher.setText("Publisher:"+book.getPublisher());
         TextView publishDate = (TextView) listItemView.findViewById(R.id.publishDate);
-        publishDate.setText("Publish Date"+book.getPublishDate());
+        publishDate.setText("Publish Date: "+book.getPublishDate());
         TextView pagecount = (TextView) listItemView.findViewById(R.id.pagecount);
-        pagecount.setText("Page count:"+book.getPageCount());
+        pagecount.setText("Page count: "+book.getPageCount());
         TextView categories = (TextView) listItemView.findViewById(R.id.categories);
         categories.setText("Categories: "+book.getCategories());
 

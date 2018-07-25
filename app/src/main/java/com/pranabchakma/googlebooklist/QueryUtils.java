@@ -105,14 +105,14 @@ public final class QueryUtils {
             for (int i=0;i<booksArray.length();i++){
                 JSONObject currentBook = booksArray.getJSONObject(i);
                 JSONObject volumeInfo = currentBook.getJSONObject("volumeInfo");
-                String title = volumeInfo.getString("title");
+                String title = volumeInfo.has("title")?volumeInfo.getString("title"):"Title not Avilable";
                 String publisher = volumeInfo.has("publisher")?volumeInfo.getString("publisher"):"Publisher not found";
                 String publishDate = volumeInfo.has("publishedDate")?volumeInfo.getString("publishedDate"):"No published Date";
                 String description= volumeInfo.has("description")? volumeInfo.getString("description"):"No description";
                 String pagecount = volumeInfo.has("pageCount")?volumeInfo.getString("pageCount"):" information not avilable";
-                String categories = volumeInfo.getJSONArray("categories").get(0).toString();
-                JSONArray authors = volumeInfo.getJSONArray("authors");
-                String authorList = authors.getString(0).toString();
+                String categories = volumeInfo.has("categories")? volumeInfo.getJSONArray("categories").get(0).toString():"Categories not avilable";
+                JSONArray authors = volumeInfo.has("authors")? volumeInfo.getJSONArray("authors"):new JSONArray();
+                String authorList = (authors.length()<0)? authors.getString(0).toString():"Author informations no avilable";
                 Book book = new Book(title,authorList,publisher,publishDate,description,pagecount,categories);
                 books.add(book);
             }
