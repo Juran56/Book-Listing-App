@@ -26,7 +26,7 @@ import java.util.List;
 
 public final class QueryUtils {
     private QueryUtils(){}
-    //public final static String BOOK_JSON_STRING = "";
+
 
     public static List<Book> fetchBooksData(String requestUrl) throws IOException {
         URL url = createUrl(requestUrl);
